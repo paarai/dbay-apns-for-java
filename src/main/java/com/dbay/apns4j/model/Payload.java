@@ -36,6 +36,7 @@ public class Payload {
 	private Integer contentAvailable;
 	
 	private String alertBody;
+	private String alertTitle;
 	private String alertActionLocKey;
 	private String alertLocKey;
 	private String[] alertLocArgs;
@@ -87,6 +88,7 @@ public class Payload {
 			if (getAlertBody() != null || getAlertLocKey() != null) {
 				JSONObject alertObj = new JSONObject();
 				putIntoJson("body", getAlertBody(), alertObj);
+				putIntoJson("title", getTitletBody(), alertObj);
 				putIntoJson("action-loc-key", getAlertActionLocKey(), alertObj);
 				putIntoJson("loc-key", getAlertLocKey(), alertObj);
 				putIntoJson("launch-image", getAlertLaunchImage(), alertObj);
@@ -138,6 +140,12 @@ public class Payload {
 	}
 	public void setAlertBody(String alertBody) {
 		this.alertBody = alertBody;
+	}
+	public String getTitleBody() {
+		return alertTitle;
+	}
+	public void setAlertTitle(String alertTitle) {
+		this.alertTitle = alertTitle;
 	}
 	public String getAlertActionLocKey() {
 		return alertActionLocKey;
